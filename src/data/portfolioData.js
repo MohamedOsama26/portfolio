@@ -9,7 +9,7 @@ export const personalInfo = {
   email: "mohamed.99.kandel@gmail.com",
   phone: "+201098964321",
   location: "Cairo, Egypt",
-  profileImage: "public/assets/profile.jpeg", // Add your profile image to public/assets/
+  profileImage: "/assets/profile.jpeg",
 };
 
 export const socialLinks = {
