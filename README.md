@@ -1,16 +1,39 @@
-# React + Vite
+# Mohamed Osama Kandil — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website showcasing my work as a Flutter developer based in Cairo, Egypt.
 
-Currently, two official plugins are available:
+**Live site:** https://mohamedosama26.github.io/portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Built with
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- Tailwind CSS v4
+- Framer Motion
+- EmailJS (contact form)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Project showcase with live links (pub.dev, Google Play)
+- Working contact form delivered to Gmail via EmailJS
+- Responsive design with animated sections
+- Auto-deployed to GitHub Pages on every push to `main`
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy
+
+Deployment is automatic via GitHub Actions on push to `main`. To set up on a new fork:
+
+1. Go to **Settings → Pages → Source → GitHub Actions**
+2. Add your EmailJS credentials to `src/components/Contact.jsx`
+
+---
+
+[GitHub](https://github.com/MohamedOsama26) · [LinkedIn](https://linkedin.com/in/mohamed-osama-kandil) · [pub.dev](https://pub.dev/packages/next_feature)
