@@ -3,9 +3,9 @@
 // ==========================================
 
 export const personalInfo = {
-  name: "Mohamed Osama",
+  name: "Mohamed Osama Kandil",
   title: "Flutter Developer",
-  tagline: "Building cross-platform mobile experiences with clean architecture",
+  tagline: "Building AI-powered Flutter apps for the Egyptian market",
   email: "mohamed.99.kandel@gmail.com",
   phone: "+201098964321",
   location: "Cairo, Egypt",
@@ -15,97 +15,112 @@ export const personalInfo = {
 export const socialLinks = {
   github: "https://github.com/MohamedOsama26",
   linkedin: "https://linkedin.com/in/mohamed-osama-kandil",
+  pubdev: "https://pub.dev/packages/next_feature",
   twitter: "",
   dribbble: "",
 };
 
 export const aboutMe = {
-  description: `I'm a Flutter developer currently working at GTS software systems company, focused on building
-    high-quality cross-platform mobile applications. I'm passionate about clean architecture
-    and creating tools that help developers work more efficiently. Recently completed a
-    Digital Twin diploma and excited to explore the intersection of mobile development and IoT.`,
+  description: `Flutter developer with 3+ years of experience building production mobile applications.
+    Currently at GTS Systems as sole mobile developer. Published on pub.dev and Google Play.
+    Integrating AI into mobile apps — currently building Makany, a bilingual AI discovery app
+    for Egypt using Google Gemini and Egyptian Arabic NLP.`,
   highlights: [
-    "Flutter Developer at GTS software systems company",
-    "Published package on pub.dev (next_feature)",
-    "App published on Google Play Store",
-    "Digital Twin diploma graduate",
+    "Flutter Developer at GTS Systems — sole mobile developer",
+    "Published next_feature package on pub.dev",
+    "Cash Note app on Google Play Store (50+ downloads)",
+    "ITIDA Digital Twin Diploma (Oct 2024 – Feb 2025)",
   ],
-  currentlyWorkingOn: "Expanding my skills in Digital Twin technologies while building Flutter applications",
+  currentlyWorkingOn: "Building Makany — an AI-powered local discovery app for Egypt with bilingual Arabic/English NLP. Also building an open-source Flutter Ollama chat client with Egyptian Arabic dialect support.",
 };
 
 export const projects = [
   {
     id: 1,
+    title: "Makany — مكاني",
+    description: "An AI-powered local discovery app for Egypt with bilingual Arabic/English NLP. Helps users discover nearby places with natural language search in Egyptian Arabic dialect using Google Gemini.",
+    image: "/assets/projects/makany.png",
+    technologies: ["Flutter", "Dart", "Google Gemini", "NLP", "Arabic NLP", "Firebase"],
+    github: "",
+    demo: "",
+    apk: "",
+    featured: true,
+    badge: "In Development",
+  },
+  {
+    id: 2,
     title: "next_feature",
-    description: "A CLI tool I created to generate Flutter feature folder structure with clean architecture. Supports multiple state management solutions (Bloc, GetX, Provider, Riverpod) and automates boilerplate code creation for faster development.",
+    description: "A CLI tool published on pub.dev that generates Flutter feature folder structure with clean architecture. Supports Bloc, GetX, Provider, and Riverpod — automating boilerplate for faster development.",
     image: "/assets/projects/next-feature.png",
     technologies: ["Dart", "CLI", "Clean Architecture", "Code Generation"],
     github: "https://github.com/MohamedOsama26/next-feature",
     demo: "https://pub.dev/packages/next_feature",
     apk: "",
     featured: true,
+    badge: "pub.dev",
   },
   {
-    id: 2,
+    id: 3,
+    title: "Ollama Egyptian Chat",
+    description: "An open-source Flutter chat client for Ollama with Egyptian Arabic dialect support. Allows users to run local LLMs and converse in Egyptian Arabic.",
+    image: "/assets/projects/ollama-chat.png",
+    technologies: ["Flutter", "Dart", "Ollama", "LLM", "Egyptian Arabic"],
+    github: "",
+    demo: "",
+    apk: "",
+    featured: true,
+    badge: "In Development",
+  },
+  {
+    id: 4,
     title: "Cash Note",
-    description: "A personal finance mobile application to track income and expenses. Helps users manage their money by recording transactions and providing an overview of their financial activity.",
+    description: "A personal finance mobile application to track income and expenses, available on Google Play Store. Helps users manage their money by recording transactions and providing financial overviews.",
     image: "/assets/projects/cash-note.png",
     technologies: ["Flutter", "Dart", "Local Storage"],
     github: "https://github.com/MohamedOsama26/cash_note",
     demo: "https://play.google.com/store/apps/details?id=com.bedaya.cash_note",
     apk: "",
-    featured: true,
+    featured: false,
+    badge: "Google Play",
   },
   {
-    id: 3,
+    id: 5,
     title: "Mason Bricks",
-    description: "A collection of Mason bricks for Flutter development. Helps generate consistent boilerplate code and maintain project structure standards across Flutter projects.",
+    description: "A collection of Mason bricks for Flutter development. Generates consistent boilerplate code and maintains project structure standards across Flutter projects.",
     image: "/assets/projects/mason-bricks.png",
     technologies: ["Dart", "Mason", "Code Generation"],
     github: "https://github.com/MohamedOsama26/mason-bricks",
     demo: "",
+    apk: "",
     featured: false,
+    badge: "",
   },
   {
-    id: 4,
-    title: "Fruits Market",
-    description: "An e-commerce mobile application for fruits. Features product browsing, cart management, and a clean user interface for online shopping.",
-    image: "/assets/projects/fruits-market.png",
-    technologies: ["Flutter", "Dart", "E-Commerce"],
-    github: "https://github.com/MohamedOsama26/FruitsMarket",
-    demo: "",
-    featured: false,
-  },
-  {
-    id: 5,
+    id: 6,
     title: "City Weather App",
-    description: "A weather application that displays current weather conditions and forecasts for cities. Built to practice API integration and state management in Flutter.",
+    description: "A weather application displaying current conditions and forecasts for cities. Built to practice API integration and state management in Flutter.",
     image: "/assets/projects/weather.png",
     technologies: ["Flutter", "Dart", "REST API", "Weather API"],
     github: "https://github.com/MohamedOsama26/City-Weather-Application",
     demo: "",
+    apk: "",
     featured: false,
+    badge: "",
   },
 ];
 
 export const skills = {
   "Mobile Development": [
-    { name: "Flutter", level: 90 },
-    { name: "Dart", level: 90 },
-    { name: "Clean Architecture", level: 85 },
-    { name: "State Management (Bloc/GetX)", level: 85 },
+    "Flutter", "Dart", "Bloc", "Riverpod", "GetX", "Hive", "Dio", "Firebase",
   ],
-  "Tools & DevOps": [
-    { name: "Git & GitHub", level: 85 },
-    { name: "Mason CLI", level: 80 },
-    { name: "VS Code", level: 90 },
-    { name: "Firebase", level: 75 },
+  "Architecture & Patterns": [
+    "Clean Architecture", "Repository Pattern", "MVVM", "REST API Integration",
   ],
-  "Learning & Exploring": [
-    { name: "Digital Twin Concepts", level: 60 },
-    { name: "IoT Basics", level: 50 },
-    { name: "Unity 3D", level: 40 },
-    { name: "REST APIs", level: 80 },
+  "AI & Emerging Tech": [
+    "Google Gemini", "Ollama", "LLM Integration", "Egyptian Arabic NLP", "Digital Twin",
+  ],
+  "Backend & Tools": [
+    "Node.js", "Express", "MongoDB", "Git", "Mason CLI", "pub.dev", "Google Play Console",
   ],
 };
 
@@ -113,15 +128,15 @@ export const education = [
   {
     id: 1,
     title: "Digital Twin Diploma",
-    institution: "National Technology Institute",
+    institution: "ITIDA — Information Technology Industry Development Agency",
     period: "Oct 2024 - Feb 2025",
     description: "Comprehensive training in Digital Twin technologies, covering IoT integration, 3D modeling concepts, and real-time data synchronization fundamentals.",
     certificate: "",
   },
   {
     id: 2,
-    title: "Bachelor's in Computer Science",
-    institution: "Suez Canal University",
+    title: "B.Sc. in Computer Science",
+    institution: "Faculty of Science, Suez Canal University",
     period: "2017 - 2021",
     description: "Focused on software engineering, mobile development, and emerging technologies.",
     certificate: "",

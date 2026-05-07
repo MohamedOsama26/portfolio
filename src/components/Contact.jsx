@@ -1,22 +1,24 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from 'react-icons/hi';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiDart } from 'react-icons/si';
 import { personalInfo, socialLinks } from '../data/portfolioData';
+
+const EMAILJS_SERVICE_ID = 'service_2hvboo5';
+const EMAILJS_TEMPLATE_ID = 'template_4608g6e';
+const EMAILJS_PUBLIC_KEY = 'p2R1YL6vl1nEpEEw0';
 
 const Contact = () => {
   const ref = useRef(null);
+  const formRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,16 +27,24 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    // Simulate form submission (replace with actual form service)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-
-    // Reset after 3 seconds
-    setTimeout(() => setSubmitted(false), 3000);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        { name: formData.name, email: formData.email, message: formData.message },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS error status:', err?.status, '| text:', err?.text, '| full:', JSON.stringify(err));
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 4000);
+    }
   };
 
   const contactInfo = [
@@ -46,7 +56,7 @@ const Contact = () => {
   const socials = [
     { icon: FaGithub, href: socialLinks.github, label: 'GitHub' },
     { icon: FaLinkedin, href: socialLinks.linkedin, label: 'LinkedIn' },
-    { icon: FaTwitter, href: socialLinks.twitter, label: 'Twitter' },
+    { icon: SiDart, href: socialLinks.pubdev, label: 'pub.dev' },
   ].filter(s => s.href);
 
   return (
@@ -138,7 +148,7 @@ const Contact = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <form onSubmit={handleSubmit} className="glass rounded-2xl p-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="glass rounded-2xl p-8">
               <div className="space-y-6">
                 {/* Name Input */}
                 <div>
@@ -195,14 +205,20 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl font-semibold text-white flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-50"
+                  className={`w-full py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2 transition-all disabled:opacity-50 ${
+                    submitStatus === 'error'
+                      ? 'bg-red-500 hover:shadow-red-500/25'
+                      : 'bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg hover:shadow-purple-500/25'
+                  }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   {isSubmitting ? (
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  ) : submitted ? (
+                  ) : submitStatus === 'success' ? (
                     'Message Sent!'
+                  ) : submitStatus === 'error' ? (
+                    'Failed — try again'
                   ) : (
                     <>
                       Send Message

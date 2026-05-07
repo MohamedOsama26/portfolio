@@ -26,10 +26,14 @@ const ProjectCard = ({ project, index }) => {
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          {/* Featured Badge */}
-          {project.featured && (
-            <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full text-xs font-semibold">
-              Featured
+          {/* Status Badge */}
+          {project.badge && (
+            <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold ${
+              project.badge === 'In Development'
+                ? 'bg-amber-500/80 text-white'
+                : 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white'
+            }`}>
+              {project.badge}
             </div>
           )}
 

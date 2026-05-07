@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaHeart } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
+import { SiDart } from 'react-icons/si';
 import { personalInfo, socialLinks, navLinks } from '../data/portfolioData';
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
   const socials = [
     { icon: FaGithub, href: socialLinks.github, label: 'GitHub' },
     { icon: FaLinkedin, href: socialLinks.linkedin, label: 'LinkedIn' },
-    { icon: FaTwitter, href: socialLinks.twitter, label: 'Twitter' },
+    { icon: SiDart, href: socialLinks.pubdev, label: 'pub.dev' },
   ].filter(s => s.href);
 
   const handleNavClick = (e, href) => {
